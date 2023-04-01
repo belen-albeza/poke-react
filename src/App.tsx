@@ -1,38 +1,40 @@
-import { useState } from "react";
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
+
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import heartIcon from "./assets/icon-heart.svg";
 import GlobalStyles from "./ui/global-styles";
+import { Container, Footer, Header, Icon, Title } from "./App.styles";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App: FC = () => {
   return (
-    <>
+    <Container>
       <GlobalStyles />
-      <div className="App">
-        <div>
+      <Header>
+        <Title>
+          Pokédex +{" "}
           <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
+            <Icon src={viteLogo} className="logo" alt="Vite logo" />
+          </a>{" "}
+          +{" "}
           <a href="https://reactjs.org" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
+            <Icon src={reactLogo} className="logo react" alt="React logo" />
           </a>
-        </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
+        </Title>
+      </Header>
+      <main>
+        <Outlet />
+      </main>
+      <Footer>
+        <p>
+          Crafted with{" "}
+          <Icon src={heartIcon} alt="Heart icon" width="16" height="16" /> by{" "}
+          <a href="https://ladybenko.net">ladybenko</a>.
         </p>
-      </div>
-    </>
+      </Footer>
+    </Container>
   );
-}
+};
 
 export default App;
