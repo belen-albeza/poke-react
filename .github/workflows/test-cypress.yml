@@ -1,18 +1,20 @@
-name: Vitest tests
+name: e2e tests
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
 jobs:
-  vitest:
+  cypress:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel previous runs
         uses: styfle/cancel-workflow-action@0.9.1
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install modules
-        run: npm install
-      - name: Run vitest
-        run: npm run test:unit
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          wait-on: "http://localhost:5173"
+          build: npm run build
+          start: npm start

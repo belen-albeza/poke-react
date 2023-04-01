@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["cypress", "@testing-library/cypress"]
+  },
+  "include": ["**/*.ts"]
+}
