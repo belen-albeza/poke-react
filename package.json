@@ -11,6 +11,8 @@
     "format": "prettier --fix .",
     "test:unit": "vitest --run",
     "test:unit:watch": "vitest",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
     "typecheck": "tsc -b",
     "validate": "run-p test:unit lint format:check typecheck"
   },
