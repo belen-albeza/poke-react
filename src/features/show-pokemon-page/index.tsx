@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Heading } from "./index.styles";
 import { Pokemon, getPokemon } from "../../api";
 import { useLoaderData } from "react-router-dom";
+import { PokemonSheet } from "../pokemon-sheet";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loader = async ({ params }: any): Promise<Pokemon | undefined> => {
@@ -18,7 +19,16 @@ const ShowPokemonPage: FC = () => {
 
   return (
     <article>
-      <Heading>{pokemon ? pokemon.name : "Pokémon"}</Heading>
+      {pokemon ? (
+        <PokemonSheet
+          id={pokemon.id}
+          name={pokemon.name}
+          types={pokemon.types}
+          sprite={pokemon.sprite}
+        />
+      ) : (
+        <Heading>Pokémon</Heading>
+      )}
     </article>
   );
 };

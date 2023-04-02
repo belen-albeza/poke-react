@@ -22,6 +22,16 @@ export const sizes = {
 } as const;
 
 export const spacing = {
+  sp004: px2rem(4),
+  sp008: px2rem(8),
   sp016: px2rem(16),
   sp032: px2rem(32),
+} as const;
+
+export const colors = {
+  gray050: "#ECEFF1",
+} as const;
+
+export const borderRadius = {
+  sm: px2rem(8),
 } as const;
