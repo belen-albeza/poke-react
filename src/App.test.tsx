@@ -3,8 +3,8 @@ import * as RTL from "@testing-library/react";
 import App from "./App";
 
 describe.concurrent("<App>", () => {
-  it("Renders a heading", () => {
+  it("Renders the app title", () => {
     const { getByText } = RTL.render(<App />);
-    expect(getByText("Vite + React")).toBeDefined();
+    expect(getByText(/Pokédex/)).toBeDefined();
   });
 });
