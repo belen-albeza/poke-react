@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import ShowPokemonPage from "./features/show-pokemon-page";
+import ShowPokemonPage, {
+  loader as pokemonLoader,
+} from "./features/show-pokemon-page";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,7 @@ const router = createBrowserRouter([
       {
         path: "pokemon/:id",
         element: <ShowPokemonPage />,
+        loader: pokemonLoader,
       },
     ],
   },
