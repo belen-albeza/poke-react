@@ -9,5 +9,12 @@ describe("Show Pokémon page", () => {
     addGetPokemonFixture();
     cy.visit("/pokemon/waka");
     cy.contains("bulbasaur");
+    cy.contains("grass");
+    cy.contains("poison");
+    cy.findByAltText("Sprite").should(
+      "have.attr",
+      "src",
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+    );
   });
 });
