@@ -1,28 +1,29 @@
 import { FC } from "react";
 import type { Pokemon } from "../models";
 
-import { Heading, ImageContainer, PokemonImage } from "./index.styles";
+import { PokemonType } from "../pokemon-type";
+import { Container, Heading, PokemonImage, TypesList } from "./index.styles";
 
 export type PokemonSheetProps = Pokemon;
 
-const PokemonSheet: FC<PokemonSheetProps> = ({
+export const PokemonSheet: FC<PokemonSheetProps> = ({
   name,
   sprite,
   types,
 }: PokemonSheetProps) => {
   return (
-    <>
+    <Container>
       <Heading>{name}</Heading>
-      <ImageContainer>
-        <PokemonImage src={sprite} alt="Sprite" />
-      </ImageContainer>
-      <ul>
+      <p>
+        <PokemonImage src={sprite} alt="Sprite" width={2000} />
+      </p>
+      <TypesList>
         {types.map((x, i) => (
-          <li key={i}>{x}</li>
+          <li key={i}>
+            <PokemonType pokeType={x} />
+          </li>
         ))}
-      </ul>
-    </>
+      </TypesList>
+    </Container>
   );
 };
-
-export default PokemonSheet;

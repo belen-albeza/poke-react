@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import PokemonSheet, { PokemonSheetProps } from ".";
+import { PokemonSheet, PokemonSheetProps } from ".";
 
 describe("<PokemonSheet>", () => {
   it("Renders pokémon data", () => {

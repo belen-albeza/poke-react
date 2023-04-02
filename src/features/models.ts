@@ -1,1 +1,1 @@
-export type { Pokemon } from "../api";
+export type { Pokemon, PokeType } from "../api";
