@@ -3,6 +3,7 @@ import { Heading } from "./index.styles";
 import { Pokemon, getPokemon } from "../../api";
 import { useLoaderData } from "react-router-dom";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loader = async ({ params }: any): Promise<Pokemon | undefined> => {
   if (!params.id) {
     return;
@@ -17,7 +18,7 @@ const ShowPokemonPage: FC = () => {
 
   return (
     <article>
-      <Heading>{pokemon ? pokemon.name : "??"}</Heading>
+      <Heading>{pokemon ? pokemon.name : "Pokémon"}</Heading>
     </article>
   );
 };
