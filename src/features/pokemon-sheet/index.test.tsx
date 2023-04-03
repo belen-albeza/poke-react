@@ -15,7 +15,7 @@ describe("<PokemonSheet>", () => {
     const image = getByAltText("Sprite") as HTMLImageElement;
 
     expect(getByText("pikachu")).toBeDefined();
-    expect(getByText("electric")).toBeDefined();
+    expect(getByText(/electric/)).toBeDefined();
     expect(image).toBeDefined();
     expect(image.src).toBe("image.png");
   });

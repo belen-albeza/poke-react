@@ -6,7 +6,7 @@ export const Container = styled.div`
   max-width: ${sizes.sz960};
   margin: 0 auto;
   padding: ${spacing.sp016};
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: ${spacing.sp032};

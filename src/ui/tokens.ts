@@ -8,12 +8,24 @@ export type Typography = keyof typeof typo;
 
 export const typo = {
   title: {
-    fontSize: px2rem(32),
-    fontWeight: 600,
+    fontSize: px2rem(28),
+    fontWeight: 700,
   },
   heading1: {
-    fontSize: px2rem(48),
-    fontWeight: 600,
+    fontSize: px2rem(36),
+    fontWeight: 700,
+  },
+  button: {
+    fontSize: px2rem(18),
+    fontWeight: 500,
+  },
+  body1: {
+    fontSize: px2rem(16),
+    fontWeight: 500,
+  },
+  body2: {
+    fontSize: px2rem(14),
+    fontWeight: 500,
   },
 } as const;
 
@@ -34,4 +46,8 @@ export const colors = {
 
 export const borderRadius = {
   sm: px2rem(8),
+} as const;
+
+export const viewports = {
+  l: "960px",
 } as const;

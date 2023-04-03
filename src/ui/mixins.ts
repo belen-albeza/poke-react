@@ -8,3 +8,11 @@ export const setTypography = (typography: Typography) => {
     font-weight: ${fontWeight};
   `;
 };
+
+export const ellipsis = () => {
+  return css`
+    whitespace: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  `;
+};
