@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { setTypography } from "../../ui/mixins";
+import { setTypography, ellipsis } from "../../ui/mixins";
 import { spacing } from "../../ui/tokens";
 
 export const Container = styled.article`
@@ -11,6 +11,8 @@ export const Heading = styled.h1`
   ${setTypography("heading1")}
   text-align: center;
   text-transform: capitalize;
+  max-width: 100%;
+  ${ellipsis()}
 `;
 
 export const PokemonImage = styled.img`

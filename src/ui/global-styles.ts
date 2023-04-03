@@ -1,4 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
+import { setTypography } from "./mixins";
 
 const reset = css`
   html {
@@ -44,6 +45,8 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
+
+  ${setTypography("body1")}
 `;
 
 export default GlobalStyles;
