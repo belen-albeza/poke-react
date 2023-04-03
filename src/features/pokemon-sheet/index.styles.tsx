@@ -18,7 +18,6 @@ export const PokemonImage = styled.img`
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
   width: 100%;
-  object-fit: cover;
 `;
 
 export const TypesList = styled.ul`

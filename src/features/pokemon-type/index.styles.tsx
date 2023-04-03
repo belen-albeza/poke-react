@@ -6,4 +6,5 @@ export const Container = styled.span`
   padding: ${spacing.sp004} ${spacing.sp016};
   background: ${colors.gray050};
   border-radius: ${borderRadius.sm};
+  text-transform: capitalize;
 `;
