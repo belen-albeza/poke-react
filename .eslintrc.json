@@ -3,6 +3,7 @@
   "parserOptions": {
     "project": ["./tsconfig.json", "./cypress/tsconfig.json"]
   },
+  "ignorePatterns": ["vite.config.*", "cypress.config.ts", "vitest.config.ts"],
   "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
