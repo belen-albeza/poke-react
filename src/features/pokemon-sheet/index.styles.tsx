@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { setTypography, ellipsis } from "../../ui/mixins";
-import { spacing } from "../../ui/tokens";
+import { spacing, viewports } from "../../ui/tokens";
 
 export const Container = styled.article`
   display: grid;
@@ -13,6 +13,10 @@ export const Heading = styled.h1`
   text-transform: capitalize;
   max-width: 100%;
   ${ellipsis()}
+
+  @media (min-width: ${viewports.l}) {
+    font-size: 5vw;
+  }
 `;
 
 export const PokemonImage = styled.img`

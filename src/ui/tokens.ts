@@ -12,7 +12,7 @@ export const typo = {
     fontWeight: 700,
   },
   heading1: {
-    fontSize: "5vw",
+    fontSize: px2rem(36),
     fontWeight: 700,
   },
   button: {

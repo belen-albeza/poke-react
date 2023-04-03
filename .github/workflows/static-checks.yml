@@ -19,6 +19,7 @@ jobs:
           reporter: github-pr-review
           filter_mode: nofilter
           fail_on_error: true
+          workdir: src
   tsc:
     name: typescript typecheck
     runs-on: ubuntu-latest
