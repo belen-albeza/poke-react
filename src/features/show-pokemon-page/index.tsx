@@ -1,35 +1,57 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { Heading } from "./index.styles";
 import { Pokemon, getPokemon } from "../../api";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, defer, Await, useAsyncValue } from "react-router-dom";
 import { PokemonSheet } from "../pokemon-sheet";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const loader = async ({ params }: any): Promise<Pokemon | undefined> => {
-  if (!params.id) {
-    return;
-  }
+type PokemonLoaderData = {
+  pokemon: Promise<Pokemon | undefined>;
+};
 
-  const pokemon = getPokemon(params.id);
-  return pokemon;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const loader = ({ params }: any) => {
+  const pokemon = params.id
+    ? getPokemon(params.id)
+    : Promise.resolve(undefined);
+
+  return defer({ pokemon });
 };
 
 const ShowPokemonPage: FC = () => {
-  const pokemon = useLoaderData() as Awaited<ReturnType<typeof loader>>;
+  const { pokemon } = useLoaderData() as PokemonLoaderData;
 
   return (
     <article>
-      {pokemon ? (
-        <PokemonSheet
-          id={pokemon.id}
-          name={pokemon.name}
-          types={pokemon.types}
-          sprite={pokemon.sprite}
-        />
-      ) : (
-        <Heading>Pokémon</Heading>
-      )}
+      <Suspense fallback={<Loading />}>
+        <Await resolve={pokemon}>
+          <ShowAwaitedPokemon />
+        </Await>
+      </Suspense>
     </article>
+  );
+};
+
+const Loading: FC = () => {
+  return (
+    <>
+      <Heading>Pokémon</Heading>
+      <p>Loading…</p>
+    </>
+  );
+};
+
+const ShowAwaitedPokemon: FC = () => {
+  const pokemon = useAsyncValue() as Awaited<PokemonLoaderData["pokemon"]>;
+
+  return pokemon ? (
+    <PokemonSheet
+      id={pokemon.id}
+      name={pokemon.name}
+      types={pokemon.types}
+      sprite={pokemon.sprite}
+    />
+  ) : (
+    <Heading>Not found :(</Heading>
   );
 };
 
