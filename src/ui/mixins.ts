@@ -11,7 +11,7 @@ export const setTypography = (typography: Typography) => {
 
 export const ellipsis = () => {
   return css`
-    whitespace: nowrap;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   `;

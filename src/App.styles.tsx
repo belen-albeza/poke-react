@@ -24,6 +24,10 @@ export const Icon = styled.img`
   vertical-align: middle;
 `;
 
+export const Main = styled.main`
+  display: grid;
+`;
+
 export const Footer = styled.footer`
   text-align: center;
 `;

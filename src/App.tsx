@@ -5,7 +5,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import heartIcon from "./assets/icon-heart.svg";
 import GlobalStyles from "./ui/global-styles";
-import { Container, Footer, Header, Icon, Title } from "./App.styles";
+import { Container, Footer, Header, Icon, Main, Title } from "./App.styles";
 
 const App: FC = () => {
   return (
@@ -23,9 +23,9 @@ const App: FC = () => {
           </a>
         </Title>
       </Header>
-      <main>
+      <Main>
         <Outlet />
-      </main>
+      </Main>
       <Footer>
         <p>
           Crafted with{" "}

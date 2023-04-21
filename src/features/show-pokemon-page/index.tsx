@@ -1,8 +1,9 @@
 import { FC, Suspense } from "react";
-import { Heading } from "./index.styles";
+import { Heading, LoadingContainer } from "./index.styles";
 import { Pokemon, getPokemon } from "../../api";
 import { useLoaderData, defer, Await, useAsyncValue } from "react-router-dom";
 import { PokemonSheet } from "../pokemon-sheet";
+import LoadingSpinner from "../../ui/components/loading-spinner";
 
 type PokemonLoaderData = {
   pokemon: Promise<Pokemon | undefined>;
@@ -35,7 +36,9 @@ const Loading: FC = () => {
   return (
     <>
       <Heading>Pokémon</Heading>
-      <p>Loading…</p>
+      <LoadingContainer>
+        <LoadingSpinner />
+      </LoadingContainer>
     </>
   );
 };

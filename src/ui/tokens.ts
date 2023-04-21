@@ -30,6 +30,7 @@ export const typo = {
 } as const;
 
 export const sizes = {
+  sz048: px2rem(48),
   sz960: px2rem(960),
 } as const;
 
